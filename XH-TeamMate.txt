@@ -1,0 +1,104 @@
+       // <==================================================================================> 
+	// <=====================   SOLID MIAU AUTHORIZED BY XHOMIE ==========================> 
+	// <==================================================================================> 
+	// <=========================== XHOMIE CODE V1.0 ! ===================================> 
+	// <==================================================================================>
+	// <=========== If you liked the "XH-TeamMate", you can contact me,       ============>
+	// <===========        I will be delighted to attend thanks to            ============>
+	// <===========         suggestions or ideas for new script :)            ============>
+	// <==================================================================================>
+	// <========================    Tr.x.Homie@gmail.com    ==============================>
+	// <========================   © 2016 By FV of XHomie   ==============================>
+	// <==================================================================================>
+	// < = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = |>
+	// <== IF THiS SERVED FOR YOU, DON'T FORGET NOT TO MENTION AND THANKS GOOD MAN ! :) ==>
+	// < = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = |>
+	public class UserSettings : Settings{//===============================================>
+	void Define(){//======================================================================>
+	// <==================================================================================> 
+	// <===================< HERE YOU CAN CHANGE FOR YOU LIKE >===========================> 
+	// <==============< DEFINE ACTIVE TEAMS >=============================================> 
+		Team1 = 1; // if 1 is Active teams1 Aviables
+		Team2 = 1; // if 1 is Active teams2 Aviables
+		Team3 = 0; // if 1 is Active teams3 Aviables
+		Team4 = 0; // if 1 is Active teams4 Aviables
+/*        <===============< DEFINE WEAPONS KITS >============================================>
+
+========================================================
+Examples of Weapons:
+========================================================
+WeaponItem.MACHETE,
+WeaponItem.BAT,
+WeaponItem.AXE,
+WeaponItem.HAMMER,
+WeaponItem.BATON,
+WeaponItem.KATANA,
+WeaponItem.PIPE,
+WeaponItem.PISTOL,
+WeaponItem.MAGNUM,
+WeaponItem.UZI,
+WeaponItem.PISTOL, 
+WeaponItem.FLAREGUN, 
+WeaponItem.REVOLVER, 
+WeaponItem.SILENCEDPISTOL, 
+WeaponItem.SILENCEDUZI,
+WeaponItem.SHOTGUN, 
+WeaponItem.TOMMYGUN, 
+WeaponItem.M60, 
+WeaponItem.SNIPER, 
+WeaponItem.SAWED_OFF,
+WeaponItem.BAZOOKA, 
+WeaponItem.GRENADE_LAUNCHER,
+WeaponItem.ASSAULT, 
+WeaponItem.CARBINE, 
+WeaponItem.FLAMETHROWER, 
+WeaponItem.SMG, 
+WeaponItem.SUB_MACHINEGUN,
+WeaponItem.GRENADES, 
+WeaponItem.MOLOTOVS,
+WeaponItem.MINES,
+WeaponItem.SLOWMO_5, 
+WeaponItem.SLOWMO_10, 
+WeaponItem.LAZER,
+==========================================================
+<====================< DEFINE KITS >=====================>
+*/
+		Kit_Weapons_1 = new WeaponItem[]{
+		// ===== NO TEAM KIT =====
+			WeaponItem.KATANA,
+			WeaponItem.PISTOL,
+			WeaponItem.M60
+		// =======================
+		};Kit_Weapons_2 = new WeaponItem[]{
+		// =====  TEAM1 KIT ======
+			WeaponItem.MACHETE,
+			WeaponItem.UZI,
+			WeaponItem.SLOWMO_5,
+			WeaponItem.LAZER
+		// =======================
+		};Kit_Weapons_3 = new WeaponItem[]{
+		// =====  TEAM2 KIT ======
+			WeaponItem.BAT,
+			WeaponItem.SILENCEDPISTOL,
+			WeaponItem.CARBINE
+		// ======================
+		};Kit_Weapons_4 = new WeaponItem[]{
+		// =====  TEAM3 KIT ======
+			WeaponItem.AXE,
+			WeaponItem.SUB_MACHINEGUN,
+			WeaponItem.GRENADES
+		// =======================
+		};Kit_Weapons_5 = new WeaponItem[]{
+		// =====  TEAM4 KIT ======
+			WeaponItem.PIPE,
+			WeaponItem.FLAREGUN,
+			WeaponItem.SHOTGUN
+		// =======================
+		};}
+	// <=================================< XHCODE >========================================> 
+private int Team1;private int Team2;private int Team3;private int Team4;private WeaponItem[] Kit_Weapons_1;private WeaponItem[] Kit_Weapons_2;private WeaponItem[] Kit_Weapons_3;private WeaponItem[] Kit_Weapons_4;private WeaponItem[] Kit_Weapons_5;public UserSettings(){this.Define();if(Team1 != null && Team1 > 0){TEAM1=true;} if(Team2 != null && Team2 > 0){TEAM2=true;} if(Team3 != null && Team3 > 0){TEAM3=true;} if(Team4 != null && Team4 > 0){TEAM4=true;} if(Kit_Weapons_1 != null && Kit_Weapons_1.Length > 0){this.WPDefine();KITS_WEAPONS.Add(Kit_Weapons_1 );} if(Kit_Weapons_2 != null && Kit_Weapons_2.Length > 0){this.WPDefine();KITS_WEAPONS.Add(Kit_Weapons_2 );} if(Kit_Weapons_3 != null && Kit_Weapons_3.Length > 0){this.WPDefine();KITS_WEAPONS.Add(Kit_Weapons_3 );} if(Kit_Weapons_4 != null && Kit_Weapons_4.Length > 0){this.WPDefine();KITS_WEAPONS.Add(Kit_Weapons_4 );} if(Kit_Weapons_5 != null && Kit_Weapons_5.Length > 0){this.WPDefine();KITS_WEAPONS.Add(Kit_Weapons_5 );} } } public abstract class Settings{protected static bool NOTEAM;protected static bool TEAM1;protected static bool TEAM2;protected static bool TEAM3;protected static bool TEAM4;protected static List<WeaponItem[]> KITS_WEAPONS;protected void Settings_User(){UserSettings user=new UserSettings();} protected void WPDefine(){if(KITS_WEAPONS == null){KITS_WEAPONS=new List<WeaponItem[]>();} } } public class XH_TeamMates : Settings{private void Party(){Game.RunCommand("/MSG ==================================== ");if(NoTeam != null && NoTeam.Count > -1){Game.RunCommand("/MSG NoTeam:"+NoTeam.Count);foreach(T_Homies homie in NoTeam){Game.RunCommand("/MSG NoTeam:"+homie.homie.GetUser().Name);} } if(Team1 != null && Team1.Count > -1){Game.RunCommand("/MSG Team1:"+Team1.Count);foreach(T_Homies homie in Team1){Game.RunCommand("/MSG Team1:"+homie.homie.GetUser().Name);} } if(Team2 != null && Team2.Count > -1){Game.RunCommand("/MSG Team2:"+Team2.Count);foreach(T_Homies homie in Team2){Game.RunCommand("/MSG Team2:"+homie.homie.GetUser().Name);} } if(Team3 != null && Team3.Count > -1){Game.RunCommand("/MSG Team3:"+Team3.Count);foreach(T_Homies homie in Team3){Game.RunCommand("/MSG Team3:"+homie.homie.GetUser().Name);} } if(Team4 != null && Team4.Count > -1){Game.RunCommand("/MSG Team4:"+Team4.Count);	foreach(T_Homies homie in Team4){Game.RunCommand("/MSG Team4:"+homie.homie.GetUser().Name);}} Game.RunCommand("/MSG ==================================== ");} private List<T_Homies> NoTeam;private List<T_Homies> Team1;private List<T_Homies> Team2;private List<T_Homies> Team3;private List<T_Homies> Team4;private bool chk;private int impPl;private static int STOFW;private Random rnd;public XH_TeamMates(){base.Settings_User();} public void Start(){NoTeam=new List<T_Homies>();if(rnd == null) rnd=new Random();if(TEAM1) Team1=new List<T_Homies>();if(TEAM2) Team2=new List<T_Homies>();if(TEAM3) Team3=new List<T_Homies>();if(TEAM4) Team4=new List<T_Homies>();foreach(IPlayer xh in Game.GetPlayers()){if(xh.IsUser){NoTeam.Add(new T_Homies(xh));} } STOFW=8;this.JustTeams();} private class T_Homies{public IPlayer homie{get;private set;} public IProfile profile{get;private set;} public PlayerTeam team{get;private set;} private IUser user{get;set;} private WeaponItem[] weapons{get;set;} public T_Homies(IPlayer homie){this.homie=homie;this.user=homie.GetUser();this.profile=homie.GetProfile();this.team=homie.GetTeam();} public void Revive(){if(!this.homie.IsRemoved && this.homie.IsDead){this.homie.Remove();/*effect*/ IPlayer RHomie=Game.CreatePlayer(this.homie.GetWorldPosition());RHomie.SetProfile(this.profile);if(weapons != null){for(int xh=0;xh < weapons.Length;xh++){if(weapons[xh] != null) RHomie.GiveWeaponItem(weapons[xh]);} } RHomie.SetUser(this.user);this.homie=RHomie;} } public void ShowMSJ(){/*Vector2*/ } } private void SLCTeams(){List<List<T_Homies>> TH=new List<List<T_Homies>>();if(NOTEAM){TH.Add(NoTeam);} if(TEAM1){TH.Add(Team1);} if(TEAM2){TH.Add(Team2);} if(TEAM3){TH.Add(Team3);} if(TEAM4){TH.Add(Team4);} if(NoTeam != null && NoTeam.Count > 0 && TH.Count > 0){int x,y,nt=NoTeam.Count;for(int xh=0;xh < nt;xh++){if(NoTeam != null && NoTeam.Count > 0){x=Rnd(NoTeam.Count,0);y=Rnd(TH.Count,0);TH[y].Add(NoTeam[x]);NoTeam.Remove(NoTeam[x]);if(NoTeam.Count < 0) break;} } } RndTeam2(TH);TH=null;STTeamMates();} private void STTeamMates(){if(NOTEAM && NoTeam != null){foreach(T_Homies homie in NoTeam){homie.homie.SetTeam(PlayerTeam.Independent);SetSKHomieTeam("XH-NoTeam",homie.homie);SetWSHomieTeam(0,homie.homie);SetSPHomieTeam(homie.homie,"XH-SP-NoTeam");} } if(TEAM1 && Team1 != null){foreach(T_Homies homie in Team1){homie.homie.SetTeam(PlayerTeam.Team1);SetSKHomieTeam("XH-Team1",homie.homie);SetWSHomieTeam(1,homie.homie);SetSPHomieTeam(homie.homie,"XH-SP-Team1");} } if(TEAM2 && Team2 != null){foreach(T_Homies homie in Team2){homie.homie.SetTeam(PlayerTeam.Team2);SetSKHomieTeam("XH-Team2",homie.homie);SetWSHomieTeam(2,homie.homie);SetSPHomieTeam(homie.homie,"XH-SP-Team2");} } if(TEAM3 && Team3 != null){foreach(T_Homies homie in Team3){homie.homie.SetTeam(PlayerTeam.Team3);SetSKHomieTeam("XH-Team3",homie.homie);SetWSHomieTeam(3,homie.homie);SetSPHomieTeam(homie.homie,"XH-SP-Team3");} } if(TEAM4 && Team4 != null){foreach(T_Homies homie in Team4){homie.homie.SetTeam(PlayerTeam.Team4);SetSKHomieTeam("XH-Team4",homie.homie);SetWSHomieTeam(4,homie.homie);SetSPHomieTeam(homie.homie,"XH-SP-Team4");} } return;} private void JustTeams(){if(NoTeam != null && NoTeam.Count > 0){bool p=(Game.GetPlayers().Length%2 == 0 );impPl=0;if(!p) impPl=1;SLCTeams();} } private void RndTeam2(List<List<T_Homies>> TH){if(!this.chk) this.chk=true;int rnd;if(TH != null && TH.Count > 1){int ct=TH.Count-1;if(ct < 0) ct=0;for(int x=ct;x >= 0;x--){if(x-1 >= 0){if(TH[x] != null && TH[x-1] != null){if(TH[x].Count+impPl > TH[x-1].Count){GetPL2(TH[x-1],TH[x]);}else if(TH[x].Count < TH[x-1].Count+impPl){GetPL2(TH[x],TH[x-1]);} } } } } if(!chk && STOFW > 0){STOFW--;RndTeam2(TH);} return;} private void GetPL2(List<T_Homies> TH1, List<T_Homies> TH2){if(TH1 != null && TH2 != null && TH2.Count > 0){T_Homies TH=TH2[Rnd(TH2.Count+1,0)];TH1.Add(TH);TH2.Remove(TH);if(this.chk) {this.chk=false;} } } private T_Homies GetPL(List<T_Homies> TH){if(TH != null && TH.Count > 0) return TH[TH.Count];return null;} private void SetSKHomieTeam(String TM, IPlayer homie){if(Game.GetSingleObjectByCustomID(TM) != null && Game.GetSingleObjectByCustomID(TM) is IObjectPlayerProfileInfo){if(rnd==null) rnd=new Random();int ojs;ojs=Rnd(Game.GetObjectsByCustomID(TM).Length,0);homie.SetProfile(((IObjectPlayerProfileInfo)(Game.GetObjectsByCustomID(TM)[ojs])).GetProfile());} } private void SetWSHomieTeam(int Select, IPlayer homie){if(KITS_WEAPONS != null){if(Select > -1 && Select < KITS_WEAPONS.Count){if(KITS_WEAPONS[Select] != null && KITS_WEAPONS[Select].Length > 0){for(int X=0;X < KITS_WEAPONS[Select].Length;X++){homie.GiveWeaponItem((KITS_WEAPONS[Select])[X]);} } else{SetWSHomieTeam(Rnd(KITS_WEAPONS.Count-1,0), homie);return;} return;}else{SetWSHomieTeam(Rnd(KITS_WEAPONS.Count-1,0), homie);return;} } } private void SetSPHomieTeam(IPlayer Homie, String SP){if(Game.GetSingleObjectByCustomID(SP) != null && Game.GetObjectsByCustomID(SP).Length > 0){int rand=Rnd(Game.GetObjectsByCustomID(SP).Length+1,0);Homie.SetWorldPosition(((IObject) Game.GetObjectsByCustomID(SP)[rand]).GetWorldPosition());} } private int Rnd(int large,int start){int rnd=0;large-=1;if(large < 0){large=0;} if (start != 0) rnd=this.rnd.Next(start, large);else rnd=this.rnd.Next(large);if(rnd < 0) return 0;return rnd;} } private XH_TeamMates XHT;public void OnStartup(){if(XHT == null){XHT=new XH_TeamMates();} /*Game.RunCommand("XH-TeamMates v0.9a");*/ XHT.Start();}
+	// <===================================================================================> 
+	// < = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = |>
+	// < = = = = = = = = = = = = = © By XHomie 2016  = = = = = = = = = = = = = = = = = = |>
+	// <== IF THiS SERVED FOR YOU, DON'T FORGET NOT TO MENTION AND THANKS GOOD MAN ! :) ==>
+	// < = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = |>
